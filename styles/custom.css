@@ -1,0 +1,366 @@
+.containerLayout {
+  background: #f5f5f5;
+  width: 100%;
+  height: calc(100vh - 120px);
+}
+
+.form {
+  flex-grow: 1;
+  background: #ffffff;
+  height: calc(90vh - 150px);
+  margin-right: 12px;
+}
+
+.result {
+  flex-grow: 15;
+  background: #ffffff;
+  height: calc(90vh - 150px);
+  margin-right: 12px;
+}
+
+.form25 {
+  width: 25%;
+  background: #ffffff;
+  height: calc(100vh - 150px);
+  margin-right: 12px;
+}
+
+.result75 {
+  width: 75%;
+  background: #ffffff;
+  margin-right: 12px;
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+.containerComprobantes {
+  display: flex;
+  align-items: stretch;
+}
+
+.containerTitleLayout {
+  height: 126px;
+  position: relative;
+}
+
+.tituloLayout {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.15px;
+  color: #424242;
+  top: 46px;
+  position: relative;
+  left: 59px;
+}
+
+.tituloForm {
+  position: relative;
+  top: 16px;
+  left: 16px;
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 16px !important;
+  line-height: 24px;
+  color: #424242 !important;
+}
+.hrdivisor {
+  border: 1px solid #EEEEEE;
+  position: relative;
+  top: 16px;
+}
+
+.tituloTable {
+  position: relative;
+  top: 16px;
+  left: 16px;
+  margin-right: 16px;
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 16px !important;
+  line-height: 24px;
+  color: #424242 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.elementosSeleccionados {
+  align-self: center;
+}
+
+.inputTextDiv {
+  margin-bottom: 50px;
+}
+
+.datePickerDiv {
+  margin-bottom: 50px;
+}
+
+.datePickerDiv #datepicker {
+  margin-top: -1% !important;
+}
+
+.inputTextDiv input:hover {
+  border: none;
+}
+
+.inputTextDiv input:focus {
+  border: none;
+}
+
+.inputTextDiv input:active {
+  border: none;
+}
+
+ .inputsContainer {
+   width: 86%;
+   text-align: center;
+   padding-left: 12%;
+   padding-top: 18%;
+ }
+
+ .buttonContainer {
+   position: relative;
+   width: 90%;
+   margin-left: 12px;
+   top: calc(85vh - 470px);
+ }
+
+ .buttonContainerCancelaciones {
+   position: relative;
+   width: 90%;
+   margin-left: 12px;
+   top: calc(50vh - 470px);
+ }
+
+ .dialog-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     opacity: 0;
+     z-index: 5;
+ }
+
+ .opaque {
+     opacity: 100%;
+ }
+
+ .radius-4px {
+     border-radius: 4px;
+ }
+
+ .noSelection {
+     user-select: none;
+     -moz-user-select: none;
+     -webkit-user-select: none;
+ }
+
+ .bg-42-80 {
+     background-color: #424242;
+     opacity: 80%;
+ }
+
+.resultSection {
+  display: flex;
+}
+
+.pdfPreview {
+  flex-grow: 5;
+  height: calc(90vh - 236px);
+  margin: 72px 0px 0px 12px;
+}
+
+.detalleComprobante {
+  flex-grow: 2;
+  height: calc(90vh - 150px);
+  margin: 56px 0px 0px 24px;
+}
+
+.tituloDetalle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #757575;
+  display: block;
+  margin-top: 16px;
+}
+
+.datosDetalle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #424242;
+  display: block;
+  margin-top: 8px;
+}
+
+.tituloResult {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #424242;
+  position: relative;
+  top: 16px;
+  left: 56px;
+}
+
+.buttonCloseResult {
+  color: #000000;
+  position: relative;
+  top: 20px;
+  left: 21px;
+  font-size: 24px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.errorResponse {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #757575;
+  position: relative;
+  left: 43%;
+  top: 300px;
+}
+
+.noEntriesFound {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  color: #757575;
+  position: relative;
+  top: 200px;
+}
+
+.inputsContainerCancelaciones {
+  width: 80%;
+  text-align: center;
+  padding-left: 18%;
+}
+
+.inputTextDivCancelaciones {
+  margin-bottom: 50px;
+  margin-top: 18%;
+}
+
+.inputTextDivCancelaciones input:hover {
+  border: none;
+}
+
+.inputTextDivCancelaciones input:focus {
+  border: none;
+}
+
+.inputTextDivCancelaciones input:active {
+  border: none;
+}
+
+@media only screen and (max-width: 1400px) {
+  .inputTextDivCancelaciones {
+    margin-bottom: 15px;
+  }
+  .datePickerDiv {
+    margin-bottom: 0px;
+  }
+  .buttonContainerCancelaciones {
+    position: relative;
+    width: 90%;
+    margin-left: 12px;
+    top: calc(75vh - 470px);
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  .inputTextDivCancelaciones {
+    margin-left: 3%;
+    width: 240px;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .inputTextDivCancelaciones {
+    margin-left: 3%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 2100px) {
+  .inputTextDivCancelaciones {
+    margin-left: 5%;
+    width: 273px;
+  }
+}
+@media only screen and (min-width: 2200px) {
+  .inputTextDivCancelaciones {
+    margin-left: 8%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 2300px) {
+  .inputTextDivCancelaciones {
+    margin-left: 10%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 2400px) {
+  .inputTextDivCancelaciones {
+    margin-left: 12%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 2500px) {
+  .inputTextDivCancelaciones {
+    margin-left: 14%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 2700px) {
+  .inputTextDivCancelaciones {
+    margin-left: 16%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 2800px) {
+  .inputTextDivCancelaciones {
+    margin-left: 17%;
+    width: 268px;
+  }
+}
+@media only screen and (min-width: 3000px) {
+  .inputTextDivCancelaciones {
+    margin-left: 19%;
+    width: 268px;
+  }
+}
+
+.hrdivisorCancelaciones {
+  border: 1px solid #EEEEEE;
+  position: relative;
+  top: 16px;
+}
+
+.containerTitleLayoutCancelacion {
+  height: 60px;
+  position: relative;
+}
+
+.tituloLayoutCancelacion {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.15px;
+  color: #424242;
+  top: 15px;
+  position: relative;
+  left: 59px;
+}

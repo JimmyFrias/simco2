@@ -1,0 +1,103 @@
+{
+  "name": "tesoreria",
+  "version": "1.0.0",
+  "description": "Modulo de SIMCO para Tesorería",
+  "main": "constRoutes.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll --verbose",
+    "test:coverage": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.concredito.io:2200/simco/modulos/tesoreria.git"
+  },
+  "keywords": [
+    "tesoreria",
+    "simco",
+    "modulo"
+  ],
+  "author": "ConCredito",
+  "license": "ISC",
+  "jest": {
+    "testResultsProcessor": "jest-sonar-reporter",
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!**/utils/**",
+      "!**/api/**",
+      "!**/test/**",
+      "!app/**/*.test.{js,jsx}",
+      "!app/*/RbGenerated*/*.{js,jsx}",
+      "!app/app.js",
+      "!app/global-styles.js",
+      "!app/*/*/Loadable.{js,jsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 98,
+        "branches": 91,
+        "functions": 98,
+        "lines": 98
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "app"
+    ],
+    "moduleNameMapper": {
+      ".*\\.(css|less|styl|scss|sass)$": "<rootDir>/src/tests/internals/mocks/cssModule.js",
+      ".*\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/internals/mocks/image.js"
+    },
+    "testRegex": "tests/.*\\.test\\.js$"
+  },
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "babel-jest": "^25.3.0",
+    "dsmapolo-react": "0.0.18.29-alpha",
+    "jest-enzyme": "^7.1.2",
+    "moment": "^2.21.0",
+    "moment-timezone": "^0.5.26",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.6.5",
+    "react-pdf": "^5.0.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "recompose": "^0.30.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "toastr": "^2.1.4",
+    "utils-accouting": "./utils"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-stage-2": "^7.8.3",
+    "@babel/runtime": "^7.9.2",
+    "@babel/runtime-corejs3": "^7.9.2",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-15": "^1.4.1",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.19.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.3.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "jsdom": "^16.3.0",
+    "jsdom-global": "^3.0.2",
+    "jwt-decode": "^2.2.0",
+    "xlsx": "^0.16.8"
+  }
+}

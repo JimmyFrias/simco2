@@ -1,0 +1,93 @@
+image: node:8.11.0
+stages:
+ - clean
+ - install
+ - test
+ - lint
+ - sonarqube
+ - check-forqa
+ - change-tag
+
+change-tag-prod:
+  stage: change-tag
+  script:
+    - curl -X POST -F token=6712efb2d24bfe4c70d22108a8d332 -F ref=prod -F variables[TAG]="$CI_COMMIT_REF_NAME" -F variables[GITPATH]="$CI_PROJECT_PATH.git" -F variables[PROJECTNAME]="$CI_PROJECT_NAME" https://gitlab.concredito.io/api/v4/projects/376/trigger/pipeline
+  tags:
+    - shell
+  only:
+    - /.*-RELEASE$/
+
+change-tag-qa:
+  stage: change-tag
+  script:
+    - curl -X POST -F token=6712efb2d24bfe4c70d22108a8d332 -F ref=qa -F variables[TAG]="$CI_COMMIT_REF_NAME" -F variables[GITPATH]="$CI_PROJECT_PATH.git" -F variables[PROJECTNAME]="$CI_PROJECT_NAME" https://gitlab.concredito.io/api/v4/projects/376/trigger/pipeline
+  tags:
+    - shell
+  only:
+    - /^release-.*$/
+    - master
+clean:
+  stage: clean
+  script:
+    - npm cache clean --force
+  tags:
+    - docker
+
+install:
+  stage: install
+  script:
+    - npm set registry https://npm.concredito.io
+    - npm install
+  tags:
+    - docker
+
+test:
+  stage: test
+  script:
+    - npm set registry https://npm.concredito.io
+    - npm install
+    - npm run test --coverage
+  artifacts:
+    paths:
+     - ./coverage
+    expire_in: '1 day'
+  tags:
+    - docker
+
+lint:
+  stage: lint
+  script:
+    - npm set registry https://npm.concredito.io
+    - npm install
+    - npm run lint
+  tags:
+    - docker
+
+sonarqube:
+  image: openjdk:8
+  stage: sonarqube
+  allow_failure: true
+  script:
+  - apt update && apt install gettext-base
+  - wget https://gitlab.concredito.io/public-stuffs/sonarqube/raw/master/sonar-project.properties --output-document=sonar-project.template.properties
+  - export PROJECT_KEY=$CI_PROJECT_NAME && export PROJECT_NAME=$CI_PROJECT_NAME && export PROJECT_VERSION=$CI_COMMIT_SHA && envsubst < sonar-project.template.properties > sonar-project.properties
+  - cat sonar-project.properties
+  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash #Only for node base projects
+  - source /root/.bashrc #Only for node base projects
+  - nvm install 8.11.0 #Only for node base projects
+  - wget https://gitlab.concredito.io/public-stuffs/sonarqube/raw/master/sonar-scanner-cli.jar --output-document=sonar-scanner-cli.jar
+  - java -jar sonar-scanner-cli.jar -Dsonar.login=$SONARQUBE_KEY -Dsonar.host.url=https://sonar.concredito.io -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+  tags:
+   - docker
+
+check-forqa:
+  stage: check-forqa
+  script:
+    - wget https://gitlab.concredito.io/public-stuffs/sonarqube/raw/master/autosonar --output-document=autosonar
+    - chmod +x autosonar
+    - ./autosonar -p $CI_PROJECT_NAME -r $CI_COMMIT_REF_NAME -s https://sonar.concredito.io -b $AUTOSONAR_KEY -c $AUTOSONAR_COVERAGE
+  only:
+    -  /^release-.*$/
+    -  /^develop-.*$/
+  tags:
+    - docker

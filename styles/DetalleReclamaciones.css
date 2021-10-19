@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Roboto";
+  }
+
+  .reclamaciones_pageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1% 2%;
+}
+  
+  .mb-1{margin-bottom: .5rem !important;}
+  .mb-2{margin-bottom: .75rem !important;}
+  .mb-3{margin-bottom: 1rem;}
+  .mb-4{margin-bottom: 1.25rem !important;}
+  .mb-5{margin-bottom: 1.5rem !important;}
+  .mb-6{margin-bottom: 2rem !important;}
+  
+  .wrp_form .btns{
+    background-color: #4ca96e;
+  
+  }
+  
+  .wrp_form .MuiButton-text{
+    color: #333 !important;
+  }
+  .wrp_form .MuiDivider-root{
+    margin: 10px 0 !important;
+  }
+  
+  .wrp_form .MuiTypography-subtitle1{
+    line-height: 1.25;
+  }
+  
+  .wrp_form .MuiTypography-subtitle2{
+    color: #999999 !important;
+  }
+  .wrp_form .item-data{
+    margin-bottom: 2rem !important;
+  }
+  
+  .wrp_form .wrapper_row{
+    margin-bottom: 2rem;
+  }
+  
+  .wrp_form .item-data .box_status{
+    padding: .25rem .75rem;
+    font-weight: 500;
+    border-radius: .25rem;
+  }
+  
+  .wrp_form .item-data .box_status.pending{
+    background: rgba(255, 208, 0, 0.24);
+    color: #ffae00;
+  }
+  
+  .wrp_form .item-data .box_status.success{
+    background: rgba(14, 139, 91, 0.24);
+    color: #4ca96e;
+  }
+  
+  .box_link_file a{
+    font-weight: 600;
+    color: #4ca96e;
+    text-decoration: none;
+  }
+  
+  .wrapper_sec{
+    border-right: 1px solid #dddddd;
+    margin-top: .75rem !important;
+  }
+  
+  .wrapper_sec2{
+    margin-top: .75rem !important;
+  }

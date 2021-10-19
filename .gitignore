@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+yarn.lock
+dist/
+src/.scannerwork
+*.log
+.idea/
+coverage/
+test-report.xml

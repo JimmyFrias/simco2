@@ -1,0 +1,2 @@
+export const GET_CONSULTA_RST_SANTANDER = 'modules/tesoreria/GET_CONSULTA_RST_SANTANDER';
+export const GET_CANCELACION_RST_SANTANDER = 'modules/tesoreria/GET_CANCELACION_RST_SANTANDER';

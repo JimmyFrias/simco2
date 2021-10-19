@@ -1,0 +1,238 @@
+
+
+.segundaConciliacionMercadoPago_pageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.segundaConciliacionMercadoPago_topContainer {
+    width: 100%;
+    height: 22%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.segundaConciliacionMercadoPago_topArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 95%;
+}
+
+.segundaConciliacionMercadoPago_title {
+    display: flex;
+    align-items: center;
+}
+
+.segundaConciliacionMercadoPago_title p {
+    font-size: 17px;
+    font-weight: 500;
+    color: #424242;
+}
+
+.segundaConciliacionMercadoPago_bottomArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+}
+
+
+
+.segundaConciliacionMercadoPago_textfieldarea {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 15%;
+    font-size: 5px;
+}
+
+
+
+
+
+.segundaConciliacionMercadoPago_descargarButtonArea {
+    display: flex;
+    align-items: center;
+    width: 15%;
+}
+
+.segundaConciliacionMercadoPago_buscarButtonArea {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding-top: 8px;
+}
+
+.segundaConciliacionMercadoPago_button {
+    background-color: #00AC68;
+    color: white;
+    height: 3rem;
+}
+
+.segundaConciliacionMercadoPago_button:hover {
+    cursor: pointer;
+    background-color: #00ac67b9;;
+}
+
+
+
+
+
+
+
+.segundaConciliacionMercadoPago_pagosDigitales {
+    background-color: #F5F5F5;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_title {
+    width: 95%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_title p {
+    font-size: 17px;
+    font-weight: 500;
+    color: #000000;
+}
+
+
+
+.segundaConciliacionMercadoPago_pagosDigitales_bottomArea {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_info {
+    background-color: white;
+    border-radius: 1px;
+    height: 100%;
+    width: 32%;
+    display: flex;
+    flex-direction: row;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_totales_area {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.segundaConciliacionMercadoPago_pagosDigitales_totales_tittle {
+    width: 100%;
+    height: 50%;
+    font-size: 13px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_totales_number {
+    width: 100%;
+    height: 50%;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_icon {
+    width: 25%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.segundaConciliacionMercadoPago_pagosDigitales_iconAreaPurple {
+    background-color: #ecd0f2;
+    color: #D189E2;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.segundaConciliacionMercadoPago_pagosDigitales_iconAreaGreen {
+    background-color: #c7eeb9;
+    color: #72CC57;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.segundaConciliacionMercadoPago_pagosDigitales_iconAreaBlue {
+    background-color: #c6e2f3;
+    color: #56B9F4;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+
+
+
+.segundaConciliacionMercadoPago_table {
+    width: 100%;
+    height: 53%;
+}
+
+
+.segundaConciliacionMercadoPago_paginationTable {
+    font-weight: 600;
+    color: #424242;
+}
+
+.segundaConciliacionMercadoPago_noResultados {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.segundaConciliacionMercadoPago_noResultados p {
+    color: #757575;
+}
+
+
+
+
+/* 
+
+
+@media (max-width: 1152px) {
+
+
+  }
+
+ */

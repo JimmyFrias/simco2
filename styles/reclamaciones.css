@@ -1,0 +1,361 @@
+/* globals */
+:root {
+  --color-green: #00ac68;
+  --color-black: #000;
+}
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+.hidden {
+  display: none;
+}
+.primary {
+  background-color: var(--color-green);
+}
+
+.text-primary {
+  color: var(--color-green);
+}
+.hover:hover {
+  cursor: pointer;
+}
+
+.show {
+  display: block;
+}
+.py-5 {
+  padding: 20px 0;
+}
+
+.flex {
+  display: flex;
+}
+.black {
+  color: var(--color-black);
+}
+.bold {
+  font-weight: bold;
+}
+.font-size-14 {
+  font-size: 14px;
+}
+.font-size-16 {
+  font-size: 16px;
+}
+.primary {
+  color: var(--color-green);
+}
+.secondary {
+  color: var(--color-black);
+}
+
+/* ---- */
+.container-consulta-comprobantes-rst-santander .grid-right .results-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-consulta-comprobantes-rst-santander
+  .grid-right
+  .error-message-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: calc(90vh - 220px);
+}
+
+.container-consulta-comprobantes-rst-santander
+  .grid-right
+  .error-message-container
+  .error-message {
+  color: #757575;
+}
+
+.container-consulta-comprobantes-rst-santander
+  .grid-right
+  .results-container
+  .pdf-preview-wrapper {
+  flex-grow: 3;
+  height: calc(90vh - 220px);
+  margin: 0 24px;
+  background: blue;
+}
+
+.container-consulta-comprobantes-rst-santander
+  .grid-right
+  .results-container
+  .detalle-comprobante {
+  flex-grow: 2;
+}
+
+.container-consulta-comprobantes-rst-santander
+  .grid-right
+  .results-container
+  .detalle-comprobante
+  .titulo-detalle {
+  color: #757575;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 8px;
+}
+.container-consulta-comprobantes-rst-santander
+  .grid-right
+  .results-container
+  .detalle-comprobante
+  .dato-detalle {
+  color: #424242;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+/* ---- */
+
+.removeFile {
+  color: var(--color-green);
+  justify-content: space-between;
+  width: 80%;
+}
+.removeModal {
+  height: 20px;
+  width: 20px;
+  position: fixed;
+  top: 20px;
+  background-color: red;
+  z-index: 9999;
+  left: 20px;
+}
+.pdf-preview-wrapper {
+  flex-grow: 3;
+  height: calc(90vh - 220px);
+  margin: 0 24px;
+  background: blue;
+  z-index: 999;
+  width: 100% !important;
+  height: 70vh;
+  top: 0;
+  right: 0;
+}
+
+.removeFile > * {
+  margin-top: 10px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.remove {
+  background-color: red;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+
+.empty-results {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-results > p {
+  font-size: 30px;
+  color: #757575;
+}
+
+.reclamacionDrawer {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#reclamacionesUploadFile {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.reclamacionDrawerHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.reclamacionDrawerHeader p {
+  margin-right: 30px;
+  font-size: 20px;
+  color: #424242;
+  font-weight: 500;
+}
+.reclamacionDrawerHeader a {
+  margin-right: 30px;
+  font-size: 20px;
+  color: #424242;
+  font-weight: 500;
+}
+.reclamacionDrawerHeader a:hover {
+  cursor: pointer;
+  color: black;
+}
+.reclamacionDrawerHeaderx {
+  margin-left: 50px;
+}
+
+.reclamacionesDrawerInputs {
+  display: flex;
+  flex-direction: row;
+}
+
+.reclamacionesDrawersText1 {
+  font-size: 12px;
+  color: #757575;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reclamacionesDrawersText2 {
+  font-size: 16px;
+  color: #424242;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reclamacionDrawerContainer {
+  width: 80%;
+  /* background-color: greenyellow; */
+  display: flex;
+  flex-direction: column;
+}
+
+.reclamaciones_pageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.reclamaciones_topContainer {
+  width: 100%;
+  height: 22%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reclamaciones_topArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  width: 95%;
+}
+
+.reclamaciones_title {
+  display: flex;
+  align-items: center;
+}
+
+.reclamaciones_title p {
+  font-size: 17px;
+  font-weight: 500;
+  color: #424242;
+}
+
+.reclamaciones_descargarButtonArea {
+  display: flex;
+  align-items: center;
+  width: 15%;
+}
+
+.reclamaciones_buscarButtonArea {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding-top: 8px;
+}
+
+.reclamaciones_bottomArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+}
+
+.reclamaciones_textfieldarea2 {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 25%;
+  font-size: 5px;
+  margin-right: 50px;
+  position: "relative";
+}
+
+.reclamaciones_textfieldarea {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 15%;
+  font-size: 5px;
+  margin-right: 50px;
+}
+
+.iconoreclamacion {
+  background-color: red;
+  position: "absolute";
+  left: 0;
+  top: 15;
+  width: 20;
+  height: 20;
+}
+
+.reclamacionesFechadelSuceso {
+  margin-right: 10px;
+  width: 500px;
+}
+
+.buscarReclamacionContainer {
+  height: 89px;
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  font-size: 5px;
+  margin-right: 50px;
+}
+
+.reclamaciones_table {
+  width: 100%;
+  height: 53%;
+}
+
+.reclamaciones_noResultados {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reclamaciones_noResultados p {
+  color: #757575;
+}
+
+.reclamaciones_paginationTable {
+  font-weight: 600;
+  color: #424242;
+}

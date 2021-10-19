@@ -1,0 +1,118 @@
+.container-consulta-comprobantes-rst-santander
+    width 100%
+    height 100%
+    background #f5f5f5
+    display grid
+    column-gap 12px
+    row-gap 12px
+    grid-template-rows 114px auto
+    grid-template-columns 320px auto
+    grid-template-areas 'header header' 'grid-left grid-right'
+
+.container-consulta-comprobantes-rst-santander .title-header-wrapper
+    grid-area header
+
+.container-consulta-comprobantes-rst-santander .title-header-wrapper .title-header
+    position relative
+    top 45px
+    left 59px
+    font-style normal
+    font-weight 500
+    font-size 18px
+    letter-spacing 0.15px
+    color #424242
+
+.container-consulta-comprobantes-rst-santander .grid-left
+    grid-area grid-left
+    background white
+
+.container-consulta-comprobantes-rst-santander .grid-left .datos-busqueda-title-wrapper
+    height 40px
+
+.container-consulta-comprobantes-rst-santander .grid-left .datos-busqueda-title-wrapper .datos-busqueda-title
+    position relative
+    left 16px
+    top 16px
+    font-style normal
+    font-weight normal
+    font-size 16px
+    line-height 24px
+    color #424242
+
+.container-consulta-comprobantes-rst-santander .grid-left .hr-divisor
+    border 1px solid #eeeeee
+
+.container-consulta-comprobantes-rst-santander .grid-left .form-container
+    display flex
+    flex-direction column
+    align-items center
+
+.container-consulta-comprobantes-rst-santander .grid-left .form-container .form-inputs-container
+    width 75%
+
+.container-consulta-comprobantes-rst-santander .grid-left .form-container .form-inputs-container .folio-wrapper
+    margin-top 42px
+    margin-bottom 50px
+
+.container-consulta-comprobantes-rst-santander .grid-left .form-container .form-button-wrapper
+    width 90%
+    margin-top 68px
+
+.container-consulta-comprobantes-rst-santander .grid-right
+    grid-area grid-right
+    background white
+
+.container-consulta-comprobantes-rst-santander .grid-right .datos-busqueda-title-wrapper
+    height 40px
+
+.container-consulta-comprobantes-rst-santander .grid-right .datos-busqueda-title-wrapper .resultado-busqueda-title
+    position relative
+    left 16px
+    top 16px
+    font-style normal
+    font-weight normal
+    font-size 16px
+    line-height 24px
+    color #424242
+
+.container-consulta-comprobantes-rst-santander .grid-right .hr-divisor
+    border 1px solid #eeeeee
+
+.container-consulta-comprobantes-rst-santander .grid-right .results-container
+    display flex
+    flex-direction row
+
+.container-consulta-comprobantes-rst-santander .grid-right .error-message-container
+    display flex
+    flex-direction row
+    align-items center
+    justify-content center
+    height calc(90vh - 220px)
+
+.container-consulta-comprobantes-rst-santander .grid-right .error-message-container .error-message
+    color #757575
+
+.container-consulta-comprobantes-rst-santander .grid-right .results-container .pdf-preview-wrapper
+    flex-grow 3
+    height calc(90vh - 220px)
+    margin 0 24px
+    background blue
+
+.container-consulta-comprobantes-rst-santander .grid-right .results-container .detalle-comprobante
+    flex-grow 2
+
+.container-consulta-comprobantes-rst-santander .grid-right .results-container .detalle-comprobante .titulo-detalle
+    color #757575
+    font-weight normal
+    font-style normal
+    font-size 12px
+    line-height 14px
+    margin-bottom 8px
+
+.container-consulta-comprobantes-rst-santander .grid-right .results-container .detalle-comprobante .dato-detalle
+    color #424242
+    font-weight normal
+    font-style normal
+    font-size 16px
+    line-height 24px
+    margin-bottom 16px

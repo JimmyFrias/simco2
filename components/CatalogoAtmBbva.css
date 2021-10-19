@@ -1,0 +1,87 @@
+.containerAtm {
+    text-align: center;
+}
+
+.buttonSaveContainerAtm {
+  width: 100%;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.buttonSaveAtm {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.titleAtm {
+  margin-top: 5%;
+}
+
+.labelAtm {
+  margin-top: 2%;
+}
+
+.labelCountDataAtm {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.labelCopyAtm {
+  display: block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #424242;
+  margin-left: 32px;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+  color: #00AC68;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 1%;
+	cursor: pointer;
+}
+
+.divFile {
+  width: 360px;
+  height: 48px;
+  background: #EEEEEE;
+  border-radius: 2px;
+  margin-left: 36%;
+  padding-top: 15px;
+  position: relative;
+}
+
+.labelinputFile {
+  position: absolute;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  left: 20px;
+}
+
+.labelinputFileDelete {
+  position: absolute;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  right: 20px;
+  color: #757575;
+  cursor: pointer;
+}
