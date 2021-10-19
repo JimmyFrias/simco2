@@ -1,13 +1,25 @@
 import axios from 'axios';
+const BASE_URL = 'http://10.128.0.63:8080/api/tesoreria/mtesoreria-reclamaciones/';
+
 export const axiosPost = async (url,data) =>{
   const response = await axios.post(url,data);
-  return {status: response.status, data: response.data};
+  const result = await response.json();
+  return {status: response.status, data: result};
 };
 
 export const axiosPut = async (url,data) =>{
-  const response = await axios.put(`http://10.128.0.63:8080/api/tesoreria/mtesoreria-reclamaciones/${url}`,data);
+  const response = await axios.put(`${BASE_URL}${url}`,data);
   return {status: response.status, data: response.data};
 };
+
+
+export const axiosGet = async (url) => {
+  const response = await axios.get(`${BASE_URL}${url}`);
+  const result = await response.json();
+  return {status: response.status, data: result};
+}
+
+
 export const axiosRequest = (path, method, data, params, responseType = 'json', ContentType = 'application/json; charset=utf-8;') => {
   let CancelToken = axios.CancelToken;
   let call1 = CancelToken.source();
