@@ -3,7 +3,7 @@ import '../../styles/custom.css';
 import '../../styles/reclamaciones.css';
 import TableReclamaciones from '../organisms/tables/TableReclamaciones';
 import TesoreriaState from '../../context/TesoreriaState';
-import HeaderTable from '../HeaderTable';
+import HeaderTable from '../organisms/tables/HeaderTable';
 import ActionModal from '../organisms/header/ActionModal';
 
 
