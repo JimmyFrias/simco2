@@ -3,54 +3,43 @@ import { MuiThemeProvider } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import { ApoloButton, ApoloDatePicker } from 'dsmapolo-react';
-import moment from 'moment';
-import { axiosPost } from '../../../api/axiosRequest';
-const fin = moment().format('DD/MM/YYYY');
-const startDate = moment().subtract(1, 'month').format('DD/MM/YYYY');
-// const b = moment().add(1, 'day');
-// console.log(a);
+import { axiosGet, axiosPost } from '../../../api/axiosRequest';
 import toastr from 'toastr';
 import PropTypes from 'prop-types';
 import TesoreriaContext from '../../../context/TesoreriaContext';
-import { getObtenerDistribuidora2 } from '../../../reclamaciones/actions';
 import UploadIcon from '../../atoms/icons/UploadIcon';
 import { formatCurrency } from './formatCurrent';
-import compressImage from '../../pages/compress-image';
+import { Notificaciones } from 'utils-accouting';
+import { validateFile } from '../../../helpers/validateFile';
+import { endDate, startDate } from '../../../helpers/formatDate';
+import { initialStateFormReclaim } from './initialStateFormReclaim';
 
-
-const initialState = {
-  plaza: '',
-  idplaza: '', idproducto: '',
-  canaltransaccion: '', origenreclamacion: '',
-  motivoreclamacion: '', endFiles: [], claveempresaria: false,
-  importereclamado: false
-};
 const FormReclams = ({ idReclamo }) => {
   const [disabled, setDisabled] = useState(true);
   const [disabledGetDistributor, setDisabledGetDistributor] = useState(true);
-  const [form, setForm] = useState(initialState);
+  const [form, setForm] = useState(initialStateFormReclaim);
   const { catalogues, getReclaims, theme } = useContext(TesoreriaContext);
   const [distributor, setDistributor] = useState({});
 
   const addReclaims = async (e) => {
     e.preventDefault();
-
     const formulary = new FormData(e.target);
-    const formatUpload = form.importereclamado.replaceAll('$', '');
+    if (form.importereclamado !== '')
+      const formatUpload = form.importereclamado.replaceAll('$', '');
     const formatImport = formatUpload.replaceAll(',', '');
     formulary.set('importereclamado', formatImport);
-    formulary.set('fechasuceso', form?.fechaSuceso);
-    formulary.set('claveempresaria', form?.claveempresaria);
-    formulary.set('folio', form?.folio ? form?.folio : "");
+    formulary.set('fechasuceso', form.fechaSuceso);
+    formulary.set('claveempresaria', form.claveempresaria);
+    formulary.set('folio', form.folio ? form.folio : "");
     formulary.delete('evidencia');
     form?.endFiles?.map(l => formulary.append('evidencia', l));
-    // form?.endFiles?.map(l => formulary.append('evidencia', l));
-    axiosPost('tesoreria/mtesoreria-reclamaciones/solicitud-reclamacion', formulary)
+
+    axiosPost('olicitud-reclamacion', formulary)
       .then(response => {
         if (response.status === 200) {
           toastr.success('La solicitud se ha creado exitosamente');
           getReclaims();
-          setForm(initialState);
+          setForm(initialStateFormReclaim);
           setDistributor({});
         } else {
           toastr.warning('La solicitud no se ha creado');
@@ -60,15 +49,14 @@ const FormReclams = ({ idReclamo }) => {
   };
 
   const validateEntry = (e) => {
-    if (!/^[0-9]{0,10}$/gi.test(e.target.value)) {
+    if (!/^[0-9]{0,10}$/gi.test(e.target.value))
       return;
-    }
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
   const validateFolio = (e) => {
-    if (!/^[a-z0-9]{0,20}$/gi.test(e.target.value)) {
+    if (!/^[a-z0-9]{0,20}$/gi.test(e.target.value))
       return;
-    }
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -92,37 +80,34 @@ const FormReclams = ({ idReclamo }) => {
 
   }, [form]);
 
-
-
   const removeArchiveName = (indexFile) => {
     const newFiles = form?.endFiles?.filter((element, index) => index !== indexFile);
-    if (newFiles.length) {
-      setForm({ ...form, file: true, listFiles: newFiles, endFiles: newFiles });
-
-    } else {
-      setForm({ ...form, file: false, listFiles: [], endFiles: [] });
-    }
-    // setForm({ ...form, file: false });
-
+    newFiles.length ?
+      setForm({ ...form, file: true, listFiles: newFiles, endFiles: newFiles })
+      :
+      setForm({ ...form, file: false, listFiles: [], endFiles: [] })
   };
 
   const getObtenerDistribuidora = (e) => {
     setDistributor({});
-    const query = {
-      idPlaza: form?.idplaza,
-      clave: form?.claveempresariaInput,
-    };
-    getObtenerDistribuidora2(query).then(response => {
-      if (response?.message) {
-        setForm({ ...form, distributor: false });
-      }
 
-      if (!response?.message) {
-        setDistributor(response);
-        setForm({ ...form, distributor: true, claveempresaria: response.id });
+    axiosGet(`obtener-distribuidora/${form.idPlaza}/${form.clave}`)
+      .then(response => {
+        if (response?.data?.message) {
+          setForm({ ...form, distributor: false });
+        }
+        if (!response?.data?.message) {
+          setDistributor(response.data);
+          setForm({ ...form, distributor: true, claveempresaria: response.data.id });
+        }
       }
-
-    });
+      )
+      .catch(error => {
+        if (error.response.status === 404) {
+          Notificaciones.warningMessage('La empresaria no pertenece a la plaza seleccionada.');
+          return error.response.data;
+        }
+      });
     return e;
   };
 
@@ -131,27 +116,18 @@ const FormReclams = ({ idReclamo }) => {
   };
 
   const handleChangeFile = (e) => {
-    const files = Array.from(e.target.files);
-    const file = e.target.files[0];
-    if (file.size > 5000000) {
-      setForm({ ...form, file: false });
-      toastr.warning('No se pueden cargar archivos mayores a 5 MB');
-    } else {
+    const files = validateFile(e);
+    if (files) {
       const images = form.endFiles.concat(files);
       setForm({ ...form, file: true, endFiles: images });
+    } else {
+      setForm({ ...form, file: false });
     }
   };
-
 
   const handleChangeFechaDesde = (e) => {
     setForm({ ...form, fechaSuceso: e });
   };
-
-  // const removeArchive = () => {
-  //   const archive = document.querySelector('input[name="evidencia"]');
-  //   archive.value = '';
-  //   setForm({ ...form, evidencia: false, file: false });
-  // };
 
   const handledCurrency = (e) => {
     const format = formatCurrency(e.target.value);
@@ -226,7 +202,7 @@ const FormReclams = ({ idReclamo }) => {
               value={form?.fechaSuceso}
               onChange={handleChangeFechaDesde}
               minDate={startDate}
-              maxDate={fin}
+              maxDate={endDate}
             />
           </MuiThemeProvider>
         </div>
@@ -312,10 +288,8 @@ const FormReclams = ({ idReclamo }) => {
               label="Folio"
               variant="outlined"
               autoComplete="off"
-              // inputProps={{ maxLength: '20' }}
               onChange={validateFolio}
               value={form?.folio}
-            //onChange={handleChangeSelects}
             />
           </MuiThemeProvider>
 
